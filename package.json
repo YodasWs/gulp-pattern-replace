@@ -1,0 +1,54 @@
+{
+  "name": "@yodasws/gulp-pattern-replace",
+  "version": "0.7.0",
+  "homepage": "https://github.com/YodasWs/gulp-pattern-replace#readme",
+  "description": "Replace strings in files by using a string, a regex pattern, or an array of either.",
+  "main": "index.js",
+  "author": {
+    "name": "Sam Grundman"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YodasWs/gulp-pattern-replace.git"
+  },
+  "keywords": [
+    "gulp",
+    "replace",
+    "string",
+    "pattern",
+    "regex",
+    "regexp",
+    "regular expression",
+    "replace string",
+    "string replace",
+    "gulp replace",
+    "gulp replace string",
+    "gulp string replace",
+    "replace pattern",
+    "pattern replace",
+    "gulp replace pattern",
+    "gulp pattern replace",
+    "replace regex",
+    "regex replace",
+    "gulp replace regex",
+    "gulp regex replace",
+    "replace regexp",
+    "regexp replace",
+    "gulp replace regexp",
+    "gulp regexp replace",
+    "replace regular expression",
+    "regular expression replace",
+    "gulp replace regular expression",
+    "gulp regular expression replace"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YodasWs/gulp-pattern-replace/issues"
+  },
+  "dependencies": {
+    "extend": "^3.0.0",
+    "gulp-util": "^3.0.7",
+    "replacestream": "^4.0.0",
+    "through2": "^2.0.1"
+  }
+}
