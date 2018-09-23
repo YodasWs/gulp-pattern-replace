@@ -56,12 +56,16 @@ module.exports = function (object, optReplaceTo=null) {
 						? replaceFrom
 						: new RegExp(replaceFrom, 'g');
 					if (regex.test(contents)) {
-						contents = contents.replace(regex, (...args) => {
-							if (typeof replaceTo === 'function') {
-								return replaceTo.apply(replaceTo, args);
-							}
-							return replaceTo;
-						});
+						if (typeof replaceTo === 'string') {
+							contents = contents.replace(regex, replaceTo);
+						} else {
+							contents = contents.replace(regex, (...args) => {
+								if (typeof replaceTo === 'function') {
+									return replaceTo.apply(replaceTo, args);
+								}
+								return replaceTo;
+							});
+						}
 					}
 				});
 				file.contents = new Buffer(contents);
