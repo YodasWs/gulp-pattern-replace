@@ -68,7 +68,26 @@ gulp.task('replace_2', function() {
 });
 ```
 
+### An Array for one replacement
+```javascript
+gulp.task('lint-js', () => {
+  gulp.src(["./config.js"])
+    .pipe(replace([/(if|for|switch|while)\(/g, '$1 ('))
+    .pipe(gulp.dest('./build/config.js'));
+});
+```
+
 ### Providing an Array for Multiple Replacements
+```javascript
+gulp.task('lint-js', () => {
+  gulp.src(["./config.js"])
+    .pipe(replace([
+		[/(if|for|switch|while)\(/g, '$1 ('],
+		['function (', 'function('],
+	])
+    .pipe(gulp.dest('./build/config.js'));
+});
+```
 
 ### Example with options object
 ```javascript
