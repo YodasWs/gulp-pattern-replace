@@ -5,12 +5,12 @@
 
 ### yarn
 ```shell
-yarn add --dev gulp-pattern-replace
+yarn add --dev @yodasws/gulp-pattern-replace
 ```
 
 ### npm
 ```shell
-npm install --save-dev gulp-pattern-replace
+npm install --save-dev @yodasws/gulp-pattern-replace
 ```
 
 ## Usage
