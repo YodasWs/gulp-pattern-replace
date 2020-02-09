@@ -15,6 +15,10 @@ npm install --save-dev @yodasws/gulp-pattern-replace
 
 ## Usage
 
+```javascript
+replace(pattern, replacement[, options])
+```
+
 ### Regex Replace
 ```javascript
 var replace = require('@yodasws/gulp-pattern-replace');
@@ -67,17 +71,25 @@ gulp.task('replace_2', function() {
     .pipe(gulp.dest('./build/config.js'))
 });
 ```
+### Providing an Array for Multiple Replacements
 
-### An Array for one replacement
+You may pass an array where the first item is the search string/regex and the second item is the replacement:
+
+```javascript
+replace(replacementArray)
+```
+
 ```javascript
 gulp.task('lint-js', () => {
   gulp.src(["./config.js"])
-    .pipe(replace([/(if|for|switch|while)\(/g, '$1 ('))
+    .pipe(replace(
+		[/(if|for|switch|while)\(/g, '$1 (')],
+	))
     .pipe(gulp.dest('./build/config.js'));
 });
 ```
+Or you may pass an array of such arrays:
 
-### Providing an Array for Multiple Replacements
 ```javascript
 gulp.task('lint-js', () => {
   gulp.src(["./config.js"])
@@ -90,6 +102,9 @@ gulp.task('lint-js', () => {
 ```
 
 ### Example with options object
+
+If you wish for logging or prefer to pass arguments in an object:
+
 ```javascript
 var options = {
   pattern: /@env@/g
@@ -107,6 +122,33 @@ gulp.task('replace_1', function() {
 ```
 
 ## API
+
+### replace(pattern, replacement[, options])
+
+#### pattern
+Type: `String` or `RegExp`
+
+The string to search for.
+
+#### replacement
+Type: `String` or `Function`
+
+The replacement string or function. Called once for each match.
+Function has access to regex outcome (all arguments are passed).
+
+#### options
+Type: `Object`
+
+Same as above, but without properties `pattern` or `replacement`
+
+### replace(replaceArray)
+
+#### replaceArray
+Type: `Array`
+
+Either:
+1. An array with 2 items: the first is the string or regex to replace, the second is the replacement
+1. An array with multiple items, each an array with two items as above, `[ search, replacement ]`
 
 ### replace(options)
 
@@ -148,21 +190,3 @@ Output logs.
 Type: `Boolean`, Default: `false`
 
 Output "not replaced" logs.
-
-### replace(pattern, replacement, options)
-
-#### pattern
-Type: `String` or `RegExp`
-
-The string to search for.
-
-#### replacement
-Type: `String` or `Function`
-
-The replacement string or function. Called once for each match.
-Function has access to regex outcome (all arguments are passed).
-
-#### options
-Type: `Object`
-
-Same as above, but without properties `pattern` or `replacement`
