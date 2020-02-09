@@ -103,15 +103,12 @@ gulp.task('lint-js', () => {
 
 ### Example with options object
 
-If you wish for logging or prefer to pass arguments in an object:
+If you prefer to pass arguments in an object:
 
 ```javascript
 var options = {
   pattern: /@env@/g
   replacement: 'dev',
-  logs: {
-    enabled: false
-  }
 };
 
 gulp.task('replace_1', function() {
@@ -167,26 +164,3 @@ The replacement string or function. Called once for each match.
 Function has access to regex outcome (all arguments are passed).
 
 More details here: [MDN documentation for RegExp] and [MDN documentation for String.replace].
-
-##### options.logs
-Type: `Boolean` or `Object`
-
-Output logs.
-
-`true` is the same as:
-```javascript
-logs: {
-  enabled: true,
-  notReplaced: false,
-}
-```
-
-##### options.logs.enabled
-Type: `Boolean`, Default: `true`
-
-Output logs.
-
-##### options.logs.notReplaced
-Type: `Boolean`, Default: `false`
-
-Output "not replaced" logs.

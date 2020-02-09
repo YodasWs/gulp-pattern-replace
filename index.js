@@ -14,13 +14,6 @@ const through = require('through2');
 const rs = require('replacestream');
 const extend = require('extend');
 
-const defaultOptions = {
-	logs: {
-		enabled: true,
-		notReplaced: false,
-	},
-};
-
 module.exports = function (object, optReplaceTo=null) {
 	const arr = (Array.isArray(object) ? object : [object]).map((obj) => {
 		let replaceFrom = '';
